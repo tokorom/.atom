@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "lib": [
+            "dom",
+            "es2017"
+        ],
+        "types": [
+            "node",
+            "jasmine"
+        ],
+        "noImplicitAny": true,
+        "strictNullChecks": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "stripInternal": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": false,
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "listFiles": false,
+        "traceResolution": false,
+        "newLine": "LF",
+        "noEmitOnError": true,
+        "inlineSources": true,
+        "listEmittedFiles": false
+    },
+    "include": [
+        "typings/**/*.d.ts",
+        "lib/**/*.ts",
+        "spec/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

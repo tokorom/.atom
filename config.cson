@@ -1,0 +1,9 @@
+"*":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…、。「」【】『』（）！？　てにをはがのともへでや"
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "d9df72f5-d491-40ca-88d1-53b3dd697706"
+  "linter-ui-default":
+    panelHeight: 296
+    showPanel: true

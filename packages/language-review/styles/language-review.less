@@ -1,0 +1,256 @@
+// https://github.com/atom/markdown-preview/blob/master/stylesheets/markdown-preview.less
+// https://github.com/yujinakayama/atom-lint/blob/master/stylesheets/atom-lint.less
+@import 'ui-variables';
+@import "syntax-variables";
+@import 'octicon-utf-codes';
+
+.width-per-loop(@counter) when (@counter > 0) {
+  .width-per-loop((@counter - 1));
+  
+  .width-@{counter}per {
+    width: (1% * @counter);
+  }
+  .width-0@{counter}per {
+    width: (1% * @counter);
+  }
+  .width-00@{counter}per {
+    width: (1% * @counter);
+  }
+}
+
+.review-preview {
+  font-family: @font-family;
+  background-color: #fff;
+  overflow: scroll;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #000;
+
+  .width-per-loop(100);
+
+  // FirstStepReVIEWのcssより
+  .column {
+    margin: 2em 0 2em 0;
+    padding: 0.3em 1em;
+    background-color: #eee;
+    border-radius: 0.7em;
+
+    h2:before, h3:before, h4:before, h5:before {
+      content: "■コラム: ";
+    }
+  }
+
+  // https://github.com/atom/markdown-preview/blob/master/stylesheets/markdown-preview.less
+  a {
+    color: #4183c4;
+  }
+
+  pre {
+    color: #ddd;
+    font-size: 1.1em;
+  }
+
+  .lead {
+    margin: 2em 0 2em 0;
+    padding: 0.3em 1em;
+    background-color: #eee;
+    border-radius: 0.7em;
+    font-size: 1.4em;
+  }
+}
+
+.review-syntax-list {
+  background-color: #fff;
+  overflow: scroll;
+  padding: 20px;
+
+  pre {
+    color: @text-color-info;
+    background: #fff;
+  }
+}
+
+.review-compile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .violation {
+    position: absolute;
+  }
+
+  .violation-arrow {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-top-width: 0;
+
+    &.violation-warning {
+      border-bottom-color: @text-color-warning;
+    }
+
+    // .error is already defined in /Applications/Atom.app/Contents/Resources/app/static/utilities.less
+    // and it adds unexpected CSS animation.
+    &.violation-error {
+      border-bottom-color: @text-color-error;
+    }
+  }
+
+  .violation-area {
+    position: absolute;
+    top: 0;
+  }
+
+  .violation-border {
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+
+    @fadeOutRatio: 20%;
+
+    &.violation-warning {
+      border-bottom-color: fadeout(@text-color-warning, @fadeOutRatio);
+    }
+
+    &.violation-error {
+      border-bottom-color: fadeout(@text-color-error, @fadeOutRatio);
+    }
+  }
+
+  .tooltip {
+    font-family: @font-family;
+    max-width: 430px;
+
+    @tooltip-arrow-width: 5px;
+    @tooltip-arrow-distance-from-target: 1px;
+
+    .top() {
+      margin-top: -@tooltip-arrow-distance-from-target;
+      padding: @tooltip-arrow-width 0;
+      .tooltip-arrow {
+        border-bottom-width: 0 !important;
+      }
+    }
+
+    .bottom() {
+      margin-top: @tooltip-arrow-distance-from-target;
+      padding: @tooltip-arrow-width 0;
+      .tooltip-arrow {
+        border-top-width: 0 !important;
+      }
+    }
+
+    .right() {
+      .tooltip-arrow {
+        left: 0 !important;
+        border-left-width: 0 !important;
+      }
+    }
+
+    .left() {
+      .tooltip-arrow {
+        left: auto !important;
+        right: 0 !important;
+        border-right-width: 0 !important;
+      }
+    }
+
+    &.top-right {
+      .top();
+      .right();
+      .tooltip-inner {
+        border-bottom-left-radius: 0 !important;
+      }
+    }
+
+    &.bottom-right {
+      .bottom();
+      .right();
+      .tooltip-inner {
+        border-top-left-radius: 0 !important;
+      }
+    }
+
+    &.bottom-left {
+      .bottom();
+      .left();
+      .tooltip-inner {
+        border-top-right-radius: 0 !important;
+      }
+    }
+
+    &.top-left {
+      .top();
+      .left();
+      .tooltip-inner {
+        border-bottom-right-radius: 0 !important;
+      }
+    }
+
+    .tooltip-inner {
+      white-space: pre-wrap;
+      text-align: left;
+
+      .attachment {
+        margin-top: 5px;
+      }
+
+      .code-label {
+        margin: 0;
+      }
+
+      code, pre {
+        border: 1px solid transparent;
+      }
+
+      code {
+        text-shadow: none;
+      }
+
+      pre {
+        margin: 5px 0;
+        padding: 4px 8px;
+        white-space: pre;
+        word-wrap: normal;
+        overflow: scroll;
+        font-size: 10px;
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+    }
+  }
+}
+
+.status-bar .review-status {
+  .icon {
+    margin-left: 5px;
+  }
+
+  .icon:before {
+    @font-size: 12px;
+    width: @font-size;
+    height: @font-size;
+    font-size: @font-size;
+    top: 0;
+    margin-right: 2px;
+  }
+
+  .review-clean:before {
+    color: @text-color-success;
+  }
+
+  .review-info:before {
+    color: @text-color-info;
+  }
+
+  .review-warning:before {
+    color: @text-color-warning;
+  }
+
+  .review-error:before {
+    color: @text-color-error;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "repos": [
+    {
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "ref": "master"
+    }
+  ],
+  "path": "typings",
+  "link": {
+    "npm": {
+      "include": false
+    }
+  },
+  "dependencies": {
+    "atom/atom.d.ts": {
+      "ref": "d79cd56465f9ed53172dc1617c863a164b0fd7fb"
+    }
+  }
+}

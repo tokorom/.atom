@@ -1,0 +1,24 @@
+# misc
+.git/
+.DS_Store
+npm-debug.log
+.gitignore
+
+# for Editor
+.vscode/
+
+# for npm
+node_modules/
+
+# for grunt and grunt tasks
+Gruntfile.js
+tslint.json
+
+# for Travis-CI
+.travis.yml
+build-package.sh
+
+# others
+example/
+docs/
+spec/

@@ -1,0 +1,26 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Re:VIEW",
+          "submenu": [
+            {
+              "label": "Toggle Preview",
+              "command": "language-review:toggle-preview"
+            },
+            {
+              "label": "Toggle Outline",
+              "command": "language-review:toggle-outline"
+            },
+            {
+              "label": "Toggle Syntax List",
+              "command": "language-review:toggle-syntax-list"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
